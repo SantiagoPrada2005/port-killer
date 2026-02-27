@@ -37,12 +37,22 @@ Construido con ❤️ usando **Go** y las librerías de **Charm**.
    go install
    ```
 
+> [!TIP]
+> Si después de instalarlo globalmente el comando `port-killer` no es reconocido, asegúrate de que el directorio bin de Go esté en tu `PATH`. Puedes agregarlo con:
+> ```bash
+> export PATH=$PATH:$(go env GOPATH)/bin
+> ```
+> Agrega esa línea a tu archivo de configuración de shell (ej. `~/.zshrc` o `~/.bashrc`) para que sea permanente.
+
 ## 🎮 Uso
 
 Para iniciar la herramienta simplemente ejecuta:
 ```bash
-./port-killer
+port-killer
 ```
+
+> [!NOTE]
+> Si estás ejecutando desde la carpeta del proyecto sin instalar globalmente, usa `./port-killer`.
 
 ### Atajos de teclado
 
