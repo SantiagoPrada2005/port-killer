@@ -1,3 +1,5 @@
+//go:build darwin
+
 package ports
 
 import (
@@ -6,15 +8,6 @@ import (
 	"os/exec"
 	"strings"
 )
-
-type ProcessPort struct {
-	Port     string
-	Protocol string
-	PID      string
-	Process  string
-	Status   string
-	User     string
-}
 
 func Scan() ([]ProcessPort, error) {
 	cmd := exec.Command("lsof", "-i", "-P", "-n")

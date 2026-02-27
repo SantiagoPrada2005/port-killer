@@ -1,3 +1,5 @@
+//go:build windows
+
 package process
 
 import (
@@ -7,12 +9,12 @@ import (
 
 // KillProcess terminates a process given its PID and a signal (e.g. "SIGTERM", "SIGKILL")
 func KillProcess(pid, signal string) error {
-	sigFlag := "-15"
+	args := []string{"/PID", pid}
 	if signal == "SIGKILL" {
-		sigFlag = "-9"
+		args = append(args, "/F")
 	}
 
-	cmd := exec.Command("kill", sigFlag, pid)
+	cmd := exec.Command("taskkill", args...)
 	output, err := cmd.CombinedOutput()
 	if err != nil {
 		return fmt.Errorf("%s", string(output))
